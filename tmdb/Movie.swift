@@ -6,19 +6,29 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct Movie: Codable{
+
+
+struct Movie: Identifiable{
     let id : Int
     let title : String
     let overview : String
     let backdropPath : String
     
-    private enum CodingKeys: String, CodingKey{
-        case id
-        case title
-        case overview
-        case backdropPath = "backdrop_path"
-    }
+}
+extension Movie: Codable{
+private enum CodingKeys: String, CodingKey{
+    case id
+    case title
+    case overview
+    case backdropPath = "backdrop_path"
+}
+}
+
+struct Movies: Codable{
+    let page: Int
+    let results: [Movie]
 }
 
 

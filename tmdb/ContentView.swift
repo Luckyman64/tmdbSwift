@@ -10,13 +10,20 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var viewModel = tmdbViewModel()
     var body: some View {
-        VStack{
-            Text(viewModel.movie.title).font(.title)
-            Text(viewModel.movie.overview)
-        }
-        .padding()
-        .task {
-            await viewModel.getMovie()
+        List{
+            ForEach(viewModel.movies.results){movie in
+                VStack{
+                    Text(movie.title).font(.title)
+                    Text(movie.overview)
+                //Text(viewModel.movie.title).font(.title)
+                //Text(viewModel.movie.overview)
+                
+            }
+            .padding()
+            .task {
+                await viewModel.getMovies()
+            }
+            }
         }
     }
 }

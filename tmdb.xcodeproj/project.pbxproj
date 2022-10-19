@@ -11,6 +11,8 @@
 		47AD6D6E28FFE3FD00089CF9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD6D6D28FFE3FD00089CF9 /* ContentView.swift */; };
 		47AD6D7028FFE3FE00089CF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47AD6D6F28FFE3FE00089CF9 /* Assets.xcassets */; };
 		47AD6D7328FFE3FE00089CF9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47AD6D7228FFE3FE00089CF9 /* Preview Assets.xcassets */; };
+		47AD6D7A28FFE65F00089CF9 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD6D7928FFE65F00089CF9 /* Movie.swift */; };
+		47AD6D7C28FFE6F900089CF9 /* tmdbViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD6D7B28FFE6F900089CF9 /* tmdbViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		47AD6D6D28FFE3FD00089CF9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		47AD6D6F28FFE3FE00089CF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47AD6D7228FFE3FE00089CF9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		47AD6D7928FFE65F00089CF9 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		47AD6D7B28FFE6F900089CF9 /* tmdbViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tmdbViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 				47AD6D6D28FFE3FD00089CF9 /* ContentView.swift */,
 				47AD6D6F28FFE3FE00089CF9 /* Assets.xcassets */,
 				47AD6D7128FFE3FE00089CF9 /* Preview Content */,
+				47AD6D7928FFE65F00089CF9 /* Movie.swift */,
+				47AD6D7B28FFE6F900089CF9 /* tmdbViewModel.swift */,
 			);
 			path = tmdb;
 			sourceTree = "<group>";
@@ -138,7 +144,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				47AD6D6E28FFE3FD00089CF9 /* ContentView.swift in Sources */,
+				47AD6D7C28FFE6F900089CF9 /* tmdbViewModel.swift in Sources */,
 				47AD6D6C28FFE3FD00089CF9 /* tmdbApp.swift in Sources */,
+				47AD6D7A28FFE65F00089CF9 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

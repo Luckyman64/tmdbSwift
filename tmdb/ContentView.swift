@@ -15,8 +15,8 @@ struct ContentView: View {
             Text(viewModel.movie.overview)
         }
         .padding()
-        .onAppear{
-            viewModel.getMovie()
+        .task {
+            await viewModel.getMovie()
         }
     }
 }

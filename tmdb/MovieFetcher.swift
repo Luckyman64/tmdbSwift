@@ -8,27 +8,14 @@
 import Foundation
 
 class MovieFetcher{
-    func getMovie(completionHandler: @escaping (Movie?) -> ()){
-
-        let url = URL(string : "https://api.themoviedb.org/3/movie/550?api_key=c15a319ea46106ff5e1547059a870c14")!
-
-        let dataTask = URLSession.shared.dataTask(with: url){ data, response, error in
-
-            if let data = data {
-                do {
-                    let jsonDecoder = JSONDecoder()
-                    let movie = try jsonDecoder.decode(Movie.self, from: data)
-                    print(movie)
-                    DispatchQueue.main.async {
-                        completionHandler(movie)
-                    }
-                } catch let error{
-                    print(error)
-                }
-            }
-
-        }
-
-        dataTask.resume()
+    let url = URL(string : "https://api.themoviedb.org/3/movie/550?api_key=c15a319ea46106ff5e1547059a870c14")!
+    
+    func getMovie()async throws-> Movie{
+        let request = URLRequest(url: url)
+        let (data, _) = try await URLSession.shared.data(for: request)
+        let jsonDecoder = JSONDecoder()
+        let movie = try jsonDecoder.decode(Movie.self, from: data)
+        return movie
     }
+    
 }

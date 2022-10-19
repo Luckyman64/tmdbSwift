@@ -7,17 +7,19 @@
 
 import SwiftUI
 
+@MainActor
 class tmdbViewModel: ObservableObject{
     @Published var movie = Movie(id: 0, title: "", overview: "", backdropPath: "")
     
     let movieFetcher = MovieFetcher()
     
-    func getMovie(){
-        movieFetcher.getMovie(completionHandler: { movie in
-            if let movie = movie{
-                self.movie = movie
-            }
-        })
+    
+    func getMovie() async {
+        do{
+        movie  =  try await movieFetcher.getMovie()
+        } catch{
+            movie = Movie(id: 0, title: "", overview: "", backdropPath: "")
+        }
     }
     
 }

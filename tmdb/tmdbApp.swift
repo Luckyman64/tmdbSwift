@@ -11,7 +11,7 @@ import SwiftUI
 struct tmdbApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(title: "", overview: "")
         }
     }
 }

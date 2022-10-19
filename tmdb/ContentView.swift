@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    var title : String
+    var overview : String
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack{
+            Text(title)
+            Text(overview)
+        }
+        .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(title: "Fight club", overview: "A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.")
     }
 }

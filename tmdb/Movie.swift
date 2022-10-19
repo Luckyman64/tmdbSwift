@@ -15,7 +15,15 @@ struct Movie: Identifiable{
     let title : String
     let overview : String
     let backdropPath : String
+    let posterPath: String
     
+    let baseURL = "https://api.themoviedb.org/t/p/w500"
+    var posterURL:URL? {
+         URL(string : baseURL + posterPath)
+    }
+    var backdropURL: URL? {
+         URL(string: baseURL + backdropPath)
+    }
 }
 extension Movie: Codable{
 private enum CodingKeys: String, CodingKey{
@@ -23,9 +31,9 @@ private enum CodingKeys: String, CodingKey{
     case title
     case overview
     case backdropPath = "backdrop_path"
+    case posterPath = "poster_path"
 }
 }
-
 struct Movies: Codable{
     let page: Int
     let results: [Movie]

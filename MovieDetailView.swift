@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MovieDetailView: View {
     var movie: Movie
+    @Binding var favoriteMovies: Set<Movie>
     @State var note: Double = 0
     var body: some View{
         VStack{
@@ -30,6 +31,24 @@ struct MovieDetailView: View {
             
             NoteView(pourcent: note)
                 .frame(width: 300, height: 300)
+            
+            Button(
+                action: {
+                    if favoriteMovies.contains(movie){
+                        favoriteMovies.remove(movie)
+                    }else{
+                        favoriteMovies.insert(movie)
+                    }
+                },
+                label: {
+                    if favoriteMovies.contains(movie){
+                Image(systemName: "star.fill")
+                    .font(.largeTitle)
+                    }else{
+                        Image(systemName: "star")
+                            .font(.largeTitle)
+                    }
+            })
             
             Spacer()
         }
@@ -87,6 +106,7 @@ struct MovieDetailView_Previews: PreviewProvider {
         let path = Bundle.main.path(forResource: "BlackAdamJson", ofType: "json")!
         let data = try! Data(contentsOf: URL(fileURLWithPath: path))
         let movieP = try! JSONDecoder().decode(Movie.self, from: data)
-        MovieDetailView(movie:movieP)
+        let favoriteMovie = Set<Movie>
+        MovieDetailView(movie:movieP, favoriteMovies: .constant(favoriteMovie))
     }
 }

@@ -15,7 +15,7 @@ struct ContentView: View {
         List{
             ForEach(viewModel.movies.results){movie in
                 NavigationLink {
-                    MovieDetailView(movie: movie)
+                    MovieDetailView(movie: movie, favoriteMovies : $viewModel.favoriteMovie)
                 } label: {
                     MovieCell(movie:movie)
                 }
@@ -58,7 +58,7 @@ struct MovieCell: View{
             .frame(width : 100)
             VStack(alignment: .leading){
                 Text(movie.title).font(.title).lineLimit(1)
-            Text(movie.overview).lineLimit(3)
+                Text(movie.overview).lineLimit(3)
             }
         }
     }

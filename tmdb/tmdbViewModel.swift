@@ -11,6 +11,7 @@ import SwiftUI
 class tmdbViewModel: ObservableObject{
     @Published var movie: Movie = .empty
     @Published var movies = Movies(page: 0, results: [Movie(id: 0, title: "", overview: "", backdropPath: "", posterPath: "", voteAverage: 0)])
+    @Published var favoriteMovie = Set<Movie> = Set<Movie>()
     
     let movieFetcher = MovieFetcher()
     

@@ -17,7 +17,7 @@ struct Movie: Identifiable{
     let backdropPath : String
     let posterPath: String
     
-    let baseURL = "https://api.themoviedb.org/t/p/w500"
+    let baseURL = "https://image.tmdb.org/t/p/w500"
     var posterURL:URL? {
          URL(string : baseURL + posterPath)
     }

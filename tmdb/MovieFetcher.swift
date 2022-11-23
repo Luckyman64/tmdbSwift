@@ -10,6 +10,7 @@ import Foundation
 class MovieFetcher{
     let url = URL(string : "https://api.themoviedb.org/3/movie/550?api_key=c15a319ea46106ff5e1547059a870c14")!
     let url2 = URL(string : "https://api.themoviedb.org/3/movie/now_playing?api_key=c15a319ea46106ff5e1547059a870c14&language=fr")!
+
     
     func getMovie()async throws-> Movie{
         let request = URLRequest(url: url)

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MovieDetailView: View {
     var movie: Movie
-    
+    @State var note: Double = 0
     var body: some View{
         VStack{
             AsyncImage(url: movie.backdropURL){
@@ -25,19 +25,27 @@ struct MovieDetailView: View {
                     EmptyView()
                 }
             }.frame(width: 200)
-            Text(movie.title)
+            Text(movie.title).font(.title)
             Text(movie.overview)
             
-            NoteView(pourcent: movie.voteAverage*10)
+            NoteView(pourcent: note)
                 .frame(width: 300, height: 300)
             
             Spacer()
         }
         .padding()
+        .onAppear{
+            note = movie.voteAverage*10
+        }
     }
 }
 
 struct ArcShape: Shape{
+    
+    var animatableData: Double{
+        get {percent}
+        set {percent = newValue}
+    }
     var percent: Double
     func path(in rect: CGRect) -> Path {
         let center = CGPoint(x: rect.midX, y: rect.midY)
@@ -65,7 +73,7 @@ struct NoteView: View{
                 ArcShape(percent: pourcent)
                     .stroke(Color.green, style : StrokeStyle(lineWidth: lineWidth, lineCap: .round))
                     .padding(padding)
-                    
+                    .animation(Animation.easeInOut(duration: 1), value: pourcent)
                 Text("\(Int(pourcent)) %")
                     .font(.largeTitle)
                     .colorInvert()

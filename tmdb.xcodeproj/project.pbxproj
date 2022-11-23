@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47AC93DF292E13200042629A /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AC93DE292E13200042629A /* MovieDetailView.swift */; };
+		47AC93E1292E14890042629A /* BlackAdamJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 47AC93E0292E14890042629A /* BlackAdamJson.json */; };
 		47AD6D6C28FFE3FD00089CF9 /* tmdbApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD6D6B28FFE3FD00089CF9 /* tmdbApp.swift */; };
 		47AD6D6E28FFE3FD00089CF9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD6D6D28FFE3FD00089CF9 /* ContentView.swift */; };
 		47AD6D7028FFE3FE00089CF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47AD6D6F28FFE3FE00089CF9 /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47AC93DE292E13200042629A /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		47AC93E0292E14890042629A /* BlackAdamJson.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BlackAdamJson.json; sourceTree = "<group>"; };
 		47AD6D6828FFE3FD00089CF9 /* tmdb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tmdb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47AD6D6B28FFE3FD00089CF9 /* tmdbApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tmdbApp.swift; sourceTree = "<group>"; };
 		47AD6D6D28FFE3FD00089CF9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,6 +45,8 @@
 		47AD6D5F28FFE3FD00089CF9 = {
 			isa = PBXGroup;
 			children = (
+				47AC93E0292E14890042629A /* BlackAdamJson.json */,
+				47AC93DE292E13200042629A /* MovieDetailView.swift */,
 				47AD6D6A28FFE3FD00089CF9 /* tmdb */,
 				47AD6D6928FFE3FD00089CF9 /* Products */,
 			);
@@ -134,6 +140,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47AC93E1292E14890042629A /* BlackAdamJson.json in Resources */,
 				47AD6D7328FFE3FE00089CF9 /* Preview Assets.xcassets in Resources */,
 				47AD6D7028FFE3FE00089CF9 /* Assets.xcassets in Resources */,
 			);
@@ -146,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47AC93DF292E13200042629A /* MovieDetailView.swift in Sources */,
 				47AD6D6E28FFE3FD00089CF9 /* ContentView.swift in Sources */,
 				47AD6D7C28FFE6F900089CF9 /* tmdbViewModel.swift in Sources */,
 				47AD6D6C28FFE3FD00089CF9 /* tmdbApp.swift in Sources */,

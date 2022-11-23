@@ -9,8 +9,8 @@ import SwiftUI
 
 @MainActor
 class tmdbViewModel: ObservableObject{
-    @Published var movie = Movie(id: 0, title: "", overview: "", backdropPath: "", posterPath: "")
-    @Published var movies = Movies(page: 0, results: [Movie(id: 0, title: "", overview: "", backdropPath: "", posterPath: "")])
+    @Published var movie: Movie = .empty
+    @Published var movies = Movies(page: 0, results: [Movie(id: 0, title: "", overview: "", backdropPath: "", posterPath: "", voteAverage: 0)])
     
     let movieFetcher = MovieFetcher()
     
@@ -18,7 +18,7 @@ class tmdbViewModel: ObservableObject{
         do{
         movie  =  try await movieFetcher.getMovie()
         } catch{
-            movie = Movie(id: 0, title: "", overview: "", backdropPath: "", posterPath: "")
+            movie = Movie(id: 0, title: "", overview: "", backdropPath: "", posterPath: "", voteAverage: 0)
         }
     }
     
@@ -26,7 +26,7 @@ class tmdbViewModel: ObservableObject{
         do{
             movies = try await movieFetcher.getMovies()
         }catch{
-            movies = Movies(page: 0, results: [Movie(id: 0, title: "", overview: "", backdropPath: "", posterPath: "")])
+            movies = Movies(page: 0, results: [Movie(id: 0, title: "", overview: "", backdropPath: "", posterPath: "", voteAverage: 0)])
         }
     }
     

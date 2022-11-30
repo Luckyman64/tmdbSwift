@@ -17,9 +17,8 @@ struct ContentView: View {
                 NavigationLink {
                     MovieDetailView(movie: movie, favoriteMovies : $viewModel.favoriteMovie)
                 } label: {
-                    MovieCell(movie:movie)
+                    MovieCell(movie:movie, favoriteMovies: $viewModel.favoriteMovie)
                 }
-                
             }
         }.navigationTitle(Text("Now Playing"))
         }
@@ -39,6 +38,7 @@ struct ContentView_Previews: PreviewProvider {
 
 struct MovieCell: View{
     var movie: Movie
+    @Binding var favoriteMovies: Set<Movie>
     
     var body : some View{
         HStack{
@@ -58,8 +58,13 @@ struct MovieCell: View{
             }
             .frame(width : 100)
             VStack(alignment: .leading){
-                Text(movie.title).font(.title).lineLimit(1)
+                HStack{
+                    Text(movie.title).font(.title2).lineLimit(1)
+                    Spacer()
+                    StarView(movie: movie, favoriteMovies: $favoriteMovies)
+                }
                 Text(movie.overview).lineLimit(3)
+                
             }
         }
     }

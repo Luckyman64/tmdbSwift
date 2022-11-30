@@ -32,23 +32,7 @@ struct MovieDetailView: View {
             NoteView(pourcent: note)
                 .frame(width: 300, height: 300)
             
-            Button(
-                action: {
-                    if favoriteMovies.contains(movie){
-                        favoriteMovies.remove(movie)
-                    }else{
-                        favoriteMovies.insert(movie)
-                    }
-                },
-                label: {
-                    if favoriteMovies.contains(movie){
-                Image(systemName: "star.fill")
-                    .font(.largeTitle)
-                    }else{
-                        Image(systemName: "star")
-                            .font(.largeTitle)
-                    }
-            })
+            StarView(movie: movie, favoriteMovies: $favoriteMovies)
             
             Spacer()
         }

@@ -11,24 +11,19 @@ struct ContentView: View {
     @StateObject var viewModel = tmdbViewModel()
     
     var body: some View {
-        NavigationView{
-        List{
-            ForEach(viewModel.movies){movie in
-                NavigationLink {
-                    MovieDetailView(movie: movie, favoriteMovies : $viewModel.favoriteMovie)
-                } label: {
-                    MovieCell(movie:movie, favoriteMovies: $viewModel.favoriteMovie)
+        TabView{
+            NowPlayingView(viewModel: viewModel)
+            .tabItem{
+                Label("Now Playing", systemImage: "play.rectangle")
+            }
+            FavoriteView(viewModel: viewModel)
+                .tabItem{
+                    Label("Favoris", systemImage: "heart")
                 }
             }
-        }.navigationTitle(Text("Now Playing"))
         }
-            .task {
-                try? await viewModel.getMovies()
-            }
-            }
-        }
+}
     
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

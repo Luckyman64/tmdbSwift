@@ -54,18 +54,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		47996D8529375C0B00E794DD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				47AD6D6D28FFE3FD00089CF9 /* ContentView.swift */,
+				47AC93DE292E13200042629A /* MovieDetailView.swift */,
+				47996D79293746E600E794DD /* StarView.swift */,
+				47996D8129374FE300E794DD /* MovieListView.swift */,
+				47996D7D29374DD600E794DD /* NowPlayingView.swift */,
+				47996D7F29374EC300E794DD /* FavoriteView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		47996D8629375C3900E794DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				47AD6D7928FFE65F00089CF9 /* Movie.swift */,
+				47AD6D7D28FFF45A00089CF9 /* MovieFetcher.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		47996D8729375C4A00E794DD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				47AD6D7B28FFE6F900089CF9 /* tmdbViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		47996D8829375C7800E794DD /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				47AD6D7128FFE3FE00089CF9 /* Preview Content */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		47AD6D5F28FFE3FD00089CF9 = {
 			isa = PBXGroup;
 			children = (
 				47996D8329375B7900E794DD /* MovieCell.swift */,
-				47996D7F29374EC300E794DD /* FavoriteView.swift */,
-				47996D7D29374DD600E794DD /* NowPlayingView.swift */,
-				47996D8129374FE300E794DD /* MovieListView.swift */,
+				47996D8729375C4A00E794DD /* ViewModel */,
+				47AD6D6B28FFE3FD00089CF9 /* tmdbApp.swift */,
+				47996D8629375C3900E794DD /* Model */,
+				47996D8529375C0B00E794DD /* View */,
 				47996D7B29374A5E00E794DD /* MovieImage.swift */,
 				47AC93E0292E14890042629A /* BlackAdamJson.json */,
-				47AC93DE292E13200042629A /* MovieDetailView.swift */,
-				47996D79293746E600E794DD /* StarView.swift */,
-				47AD6D6A28FFE3FD00089CF9 /* tmdb */,
+				47996D8829375C7800E794DD /* resources */,
 				47AD6D6928FFE3FD00089CF9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,23 +115,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		47AD6D6A28FFE3FD00089CF9 /* tmdb */ = {
-			isa = PBXGroup;
-			children = (
-				47AD6D6B28FFE3FD00089CF9 /* tmdbApp.swift */,
-				47AD6D6D28FFE3FD00089CF9 /* ContentView.swift */,
-				47AD6D6F28FFE3FE00089CF9 /* Assets.xcassets */,
-				47AD6D7128FFE3FE00089CF9 /* Preview Content */,
-				47AD6D7928FFE65F00089CF9 /* Movie.swift */,
-				47AD6D7B28FFE6F900089CF9 /* tmdbViewModel.swift */,
-				47AD6D7D28FFF45A00089CF9 /* MovieFetcher.swift */,
-			);
-			path = tmdb;
-			sourceTree = "<group>";
-		};
 		47AD6D7128FFE3FE00089CF9 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				47AD6D6F28FFE3FE00089CF9 /* Assets.xcassets */,
 				47AD6D7228FFE3FE00089CF9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -310,7 +334,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"tmdb/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"resources/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -338,7 +362,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"tmdb/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"resources/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

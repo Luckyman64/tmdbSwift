@@ -13,19 +13,10 @@ struct MovieDetailView: View {
     @State var note: Double = 0
     var body: some View{
         VStack{
-            AsyncImage(url: movie.backdropURL){
-                phase in
-                switch phase{
-                case .empty:
-                    ProgressView()
-                case .success(let image):
-                    image.resizable().aspectRatio(contentMode: .fit)
-                case .failure:
-                    EmptyView()
-                @unknown default:
-                    EmptyView()
-                }
-            }.frame(width: 200)
+            if let url = movie.backdropURL{
+            MovieImage(movieURL: url)
+                    .frame(width: 300)
+            }
             Text(movie.title).font(.title)
             Text(movie.overview)
             

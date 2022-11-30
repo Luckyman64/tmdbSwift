@@ -42,21 +42,10 @@ struct MovieCell: View{
     
     var body : some View{
         HStack{
-            
-            AsyncImage(url: movie.posterURL){
-                phase in
-                switch phase{
-                case .empty:
-                    ProgressView()
-                case .success(let image):
-                    image.resizable().aspectRatio(contentMode: .fit)
-                case .failure:
-                    EmptyView()
-                @unknown default:
-                    EmptyView()
-                }
-            }
+            if let url = movie.posterURL{
+            MovieImage(movieURL: url)
             .frame(width : 100)
+            }
             VStack(alignment: .leading){
                 HStack{
                     Text(movie.title).font(.title2).lineLimit(1)

@@ -11,8 +11,10 @@ struct FavoriteView: View {
     @ObservedObject var viewModel: tmdbViewModel
     var body: some View {
         NavigationView{
-        MovieListView(movies: Array(viewModel.favoriteMovie), favoriteMovies: $viewModel.favoriteMovie)
-                .navigationTitle(Text("Favoris"))
+            List{
+            MovieListView(movies: Array(viewModel.favoriteMovie), favoriteMovies: $viewModel.favoriteMovie)
+                    .navigationTitle(Text("Favoris"))
+            }
         }
     }
 }

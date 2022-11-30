@@ -14,16 +14,22 @@ struct Movie{
     let id : Int
     let title : String
     let overview : String
-    let backdropPath : String
-    let posterPath: String
+    let backdropPath : String?
+    let posterPath: String?
     let voteAverage : Double
     
     let baseURL = "https://image.tmdb.org/t/p/w500"
     var posterURL:URL? {
-         URL(string : baseURL + posterPath)
+        guard let posterPath = posterPath else {
+            return nil
+        }
+            return URL(string : baseURL + posterPath)
     }
     var backdropURL: URL? {
-         URL(string: baseURL + backdropPath)
+        guard let backdropPath = backdropPath else {
+            return nil
+        }
+            return URL(string: baseURL + backdropPath)
     }
     
     static var empty: Movie{

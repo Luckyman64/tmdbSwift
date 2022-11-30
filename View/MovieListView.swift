@@ -11,13 +11,11 @@ struct MovieListView: View {
     var movies: [Movie]
     @Binding var favoriteMovies: Set<Movie>
     var body: some View {
-        List{
-            ForEach(movies){movie in
-                NavigationLink {
-                    MovieDetailView(movie: movie, favoriteMovies : $favoriteMovies)
-                } label: {
-                    MovieCell(movie:movie, favoriteMovies: $favoriteMovies)
-                }
+        ForEach(movies){movie in
+            NavigationLink {
+                MovieDetailView(movie: movie, favoriteMovies : $favoriteMovies)
+            } label: {
+                MovieCell(movie:movie, favoriteMovies: $favoriteMovies)
             }
         }
     }

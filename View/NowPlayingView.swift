@@ -11,11 +11,16 @@ struct NowPlayingView: View {
     @StateObject var viewModel:tmdbViewModel
     var body: some View {
         NavigationView{
+            List{
             MovieListView(movies: viewModel.movies, favoriteMovies: $viewModel.favoriteMovie)
                 .navigationTitle(Text("Now Playing"))
-        }
-            .task {
-                try? await viewModel.getMovies()
+                ProgressView()
+                    .onAppear{
+                    Task {
+                        try? await viewModel.getMovies()
+                    }
+                }
             }
+        }
     }
 }

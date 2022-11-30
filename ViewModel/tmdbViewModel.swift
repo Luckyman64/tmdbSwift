@@ -54,10 +54,13 @@ class tmdbViewModel: ObservableObject{
     }
     
     let movieFetcher = MovieFetcher()
+    var currentpage = 1
     
     func getMovies() async throws{
-        let moviesResponse = try await movieFetcher.getMovies()
-        movies = moviesResponse.results
+        let moviesResponse = try await movieFetcher.getMovies(page: currentpage)
+        movies.append(contentsOf: moviesResponse.results)
+        currentpage += 1
+        print("currentPage = \(currentpage)")
     }
     
 }

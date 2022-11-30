@@ -9,26 +9,14 @@ import SwiftUI
 
 @MainActor
 class tmdbViewModel: ObservableObject{
-    @Published var movie: Movie = .empty
-    @Published var movies = Movies(page: 0, results: [Movie(id: 0, title: "", overview: "", backdropPath: "", posterPath: "", voteAverage: 0)])
-    @Published var favoriteMovie = Set<Movie> = Set<Movie>()
+    @Published var movies = [Movie]()
+    @Published var favoriteMovie : Set<Movie> = Set<Movie>()
     
     let movieFetcher = MovieFetcher()
     
-    func getMovie() async {
-        do{
-        movie  =  try await movieFetcher.getMovie()
-        } catch{
-            movie = Movie(id: 0, title: "", overview: "", backdropPath: "", posterPath: "", voteAverage: 0)
-        }
-    }
-    
-    func getMovies() async{
-        do{
-            movies = try await movieFetcher.getMovies()
-        }catch{
-            movies = Movies(page: 0, results: [Movie(id: 0, title: "", overview: "", backdropPath: "", posterPath: "", voteAverage: 0)])
-        }
+    func getMovies() async throws{
+        let moviesResponse = try await movieFetcher.getMovies()
+        movies = moviesResponse.results
     }
     
 }

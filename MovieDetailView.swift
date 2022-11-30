@@ -106,7 +106,7 @@ struct MovieDetailView_Previews: PreviewProvider {
         let path = Bundle.main.path(forResource: "BlackAdamJson", ofType: "json")!
         let data = try! Data(contentsOf: URL(fileURLWithPath: path))
         let movieP = try! JSONDecoder().decode(Movie.self, from: data)
-        let favoriteMovie = Set<Movie>
+        let favoriteMovie = Set<Movie>();
         MovieDetailView(movie:movieP, favoriteMovies: .constant(favoriteMovie))
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 
 
 
-struct Movie: Identifiable{
+struct Movie{
     let id : Int
     let title : String
     let overview : String
@@ -40,6 +40,9 @@ private enum CodingKeys: String, CodingKey{
     case voteAverage = "vote_average"
 }
 }
+
+extension Movie: Identifiable, Hashable{}
+
 struct Movies: Codable{
     let page: Int
     let results: [Movie]

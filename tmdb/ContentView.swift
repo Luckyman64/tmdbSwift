@@ -13,17 +13,18 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
         List{
-            ForEach(viewModel.movies.results){movie in
+            ForEach(viewModel.movies){movie in
                 NavigationLink {
                     MovieDetailView(movie: movie, favoriteMovies : $viewModel.favoriteMovie)
                 } label: {
                     MovieCell(movie:movie)
                 }
+                
             }
         }.navigationTitle(Text("Now Playing"))
         }
             .task {
-                await viewModel.getMovies()
+                try? await viewModel.getMovies()
             }
             }
         }
